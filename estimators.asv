@@ -1,0 +1,19 @@
+clear all; 
+close all;
+size = 1000;
+X_exp = rand_exp(size);
+est_EX_exp = sum(X_exp)/size;
+X_norm = randn(size,1);
+est_EX_norm = sum(X_norm)/size;
+
+est_VAR_exp = 0; 
+for n=1:size
+   est_VAR_exp = est_VAR_exp + (est_EX_exp - X_exp(n)).*(est_EX_exp - X_exp(n)); 
+end
+est_VAR_exp = est_VAR_exp./size;
+
+est_VAR_norm = 0; 
+for n=1:size
+   est_VAR_norm = est_VAR_norm + (est_EX_norm - X_norm(n)).*(est_EX_norm - X_exp(n)); 
+end
+est_VAR_exp = est_VAR_exp./size;
