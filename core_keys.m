@@ -1,8 +1,14 @@
 function value = core_keys(argument)
-    if(argument == 0)
-        value = 1;
-    elseif(abs(argument)<=1)
-        value = sin(argument)/argument;
+size = length(argument);
+value = zeros(1,size);
+for n=1:size
+    if(argument(n) == 0)
+        value(n) = 1;
+    elseif(abs(argument(n))<=0.5)
+        value(n) = sin(argument(n)*4*pi)./(argument(n)*4*pi);
     else
-        value = 0;
+        value(n) = 0;
+    end
+end
+
 end

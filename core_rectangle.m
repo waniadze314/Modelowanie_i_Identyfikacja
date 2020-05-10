@@ -1,6 +1,11 @@
 function value = core_rectangle(argument)
-if(abs(argument)<=1)
-    value = 1;
-else
-    value = 0;
+size = length(argument);
+value = zeros(1, size);
+for n=1:size
+    if(abs(argument(n))<=0.5)
+        value(n) = 1;
+    else
+        value(n) = 0;
+    end
+end
 end

@@ -1,9 +1,13 @@
 function value = core_triangle(argument)
-
-    if(argument<0 && argument>-1)
-        value = 1+argument;
-    elseif(arvument>0 && argument<1)
-        value = 1-argument;
+size = length(argument);
+value = zeros(1,size);
+for n=1:size
+    if(argument(n)<=0 && argument(n)>-1)
+        value(n) = 1+argument(n);
+    elseif(argument(n)>0 && argument(n)<1)
+        value(n) = 1-argument(n);
     else 
-        value = 0;         
+        value(n) = 0;     
+    end
+end
 end
